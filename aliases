@@ -1,0 +1,37 @@
+# aliases
+
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+alias c="cd"
+alias ..="cd .."
+alias mkd="mkdir -p"
+alias clr="clear"
+alias hcw="history -c && history -w"
+alias dmg="sudo dmesg"
+alias logout="gnome-session-quit"
+alias suspend="systemctl suspend"
+alias y="yay"
+alias ffx="(firefox &> /dev/null &)"
+alias wolf="(flatpak run io.gitlab.librewolf-community &> /dev/null &)"
+alias discord="(flatpak run com.discordapp.Discord &>  /dev/null &)"
+alias hexchat="(flatpak run io.github.Hexchat &> /dev/null  &)"
+alias element="(flatpak run im.riot.Riot &> /dev/null &)"
+alias shortwave="(flatpak run de.haeckerfelix.Shortwave &> /dev/null &)"
+alias office="(flatpak run org.libreoffice.LibreOffice &> /dev/null &)"
+alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
+alias top="htop"
+alias add="sudo pacman -S"
+alias remove="sudo pacman -Rns"
+alias notes="micro"
+alias query="pacman -Q"
+alias search="pacman -Ss"
+alias upgrade="sudo pacman -Syu"
