@@ -9,7 +9,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Networking and host
-    networking.hostName = "darknet"
+    networking.hostName = "darknet";
 
     # Enable Systemd Network Manager
     networking.networkmanager.enable = true;
@@ -94,7 +94,7 @@
         pkgs.pavucontrol
     ];
 
-     # Some programs need SUID wrappers, can be configured further or are
+  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
