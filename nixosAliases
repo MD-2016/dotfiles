@@ -1,0 +1,39 @@
+# aliases
+
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+alias c="cd"
+alias ..="cd .."
+alias mkd="mkdir -p"
+alias clr="clear"
+alias hcw="history -c && history -w"
+alias dmg="sudo dmesg"
+alias logout="gnome-session-quit"
+alias suspend="systemctl suspend"
+alias ffx="(firefox &> /dev/null &)"
+alias wolf="(flatpak run io.gitlab.librewolf-community &> /dev/null &)"
+alias discord="(flatpak run com.discordapp.Discord &>  /dev/null &)"
+alias hexchat="(flatpak run io.github.Hexchat &> /dev/null  &)"
+alias element="(flatpak run im.riot.Riot &> /dev/null &)"
+alias shortwave="(flatpak run de.haeckerfelix.Shortwave &> /dev/null &)"
+alias office="(flatpak run org.libreoffice.LibreOffice &> /dev/null &)"
+alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
+alias box="(flatpak run org.gnome.Boxes &> /dev/null &)"
+alias top="htop"
+alias update="nix-channel --update"
+alias rollback="nixos-rebuild switch --rollback"
+alias notes="micro"
+alias config="sudo micro /etc/nixos/configuration.nix"
+alias garbage="nix-collect-garbage --delete-older-than 30d"
+alias delete="nix-collect-garbage -d"
+alias gener="sudo nix-env -p /nix/var/profiles/system --list-generations"
+alias rebuild="sudo nixos-rebuild switch"
