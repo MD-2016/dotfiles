@@ -51,10 +51,10 @@
     # Enable sound with pulseaudio
     sound.enable = true;
     hardware.pulseaudio.enable = true;
-    security.rtkill.enable = true;
+    security.rtkit.enable = true;
 
     # Define user account 
-    users.users..${user} = {
+    users.users.${user} = {
         isNormalUser = true;
         description = "MD Cool";
         extraGroups = ["networkmanager" "wheel"];
