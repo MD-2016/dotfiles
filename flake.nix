@@ -26,6 +26,8 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${user} = {
+              imports = [./home.nix];
+
               home = {
                 username = user;
                 homeDirectory = "/home/${user}";
