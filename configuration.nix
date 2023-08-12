@@ -1,15 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
+  config,
+  pkgs,
+  user,
+  ...
+}: {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,10 +40,10 @@
   };
 
   # Programs Direnv
-  programs.direnv = {
-  	enable = true;
-  	nix-direnv.enable = true;
-  };
+  # programs.direnv = {
+  #   enable = true;
+  #   nix-direnv.enable = true;
+  # };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -85,21 +82,21 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.md89 = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "MD Cool";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       firefox
       neofetch
       gimp
       pkgs.libsForQt5.okular
       pkgs.vscode
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
-  # Services 
+  # Services
   services.flatpak.enable = true;
 
   # Allow unfree packages
@@ -111,20 +108,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  # text editor
+    # text editor
     micro
-  # git 
+    # git
     git
 
-  # volume control
+    # volume control
     pkgs.pavucontrol
-    
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
   ];
-
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -152,5 +146,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
 }
