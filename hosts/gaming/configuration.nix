@@ -9,7 +9,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
 
     # Networking and host
-    networking.hostName = "darknet"
+    networking.hostName = "darknet";
 
     # Enable Systemd Network Manager
     networking.networkmanager.enable = true;
@@ -64,7 +64,7 @@
     users.users.${user} = {
       isNormalUser = true;
       description = "MD Cool";
-      extraGroups = ["networkmanager" "wheel" "audio"]
+      extraGroups = ["networkmanager" "wheel" "audio"];
       packages = with pkgs; [
         firefox
         pkgs.ungoogled-chromium
