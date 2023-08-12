@@ -18,9 +18,9 @@
     time.timeZone = "America/New_York";
 
     # internationalisation prop
-    118n.defaultLocale = "en_US.UTF-8";
+    i18n.defaultLocale = "en_US.UTF-8";
 
-    118n.extractLocaleSettings = {
+    i18n.extractLocaleSettings = {
         LC_ADDRESS = "en_US.UTF-8";
         LC_IDENTIFICATION = "en_US.UTF-8";
         LC_MEASUREMENT = "en_US.UTF-8";
