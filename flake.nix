@@ -43,6 +43,8 @@
         ./configuration.nix
       ];
     in {
+      # update with `nix flake update`
+      # rebuild with `nixos-rebuild switch --flake .#dev`
       dev = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
 
@@ -59,6 +61,30 @@
             # host specific hardware configuration
             ./hosts/dev/hardware-configuration.nix
           ];
+      };
+    };
+
+    templates = let
+      welcomeText = ''
+        # `.devenv` and `direnv` should be added to `.gitignore`
+        ```sh
+          echo .devenv >> .gitignore
+          echo .direnv >> .gitignore
+        ```
+      '';
+    in {
+      # initialize with `nix flake init --template github.com:MD-2016/dotfiles#golang`
+      golang = {
+        inherit welcomeText;
+        path = ./templates/golang;
+        description = "devenv for golang";
+      };
+
+      # initialize with `nix flake init --template github.com:MD-2016/dotfiles#rust`
+      rust = {
+        inherit welcomeText;
+        path = ./templates/rust;
+        description = "devenv for rust";
       };
     };
   };
