@@ -2,7 +2,7 @@
   description = "MD's nix config";
 
   inputs = {
-    # change to github:nixos/nixpkgs/nixos-23.05 for unstable
+    # change to github:nixos/nixpkgs/nixos-unstable for unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
 
     home-manager = {
@@ -19,49 +19,56 @@
   }: {
     nixosConfigurations = let
       user = "md89";
-      commonModules = [
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.${user} = {
-              imports = [./home.nix];
+      mkHost = host:
+        nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
 
-              home = {
-                username = user;
-                homeDirectory = "/home/${user}";
-                # do not change this value
-                stateVersion = "23.05";
-              };
-
-              # Let Home Manager install and manage itself.
-              programs.home-manager.enable = true;
-            };
+          specialArgs = {
+            inherit (nixpkgs) lib;
+            inherit inputs nixpkgs system user;
           };
-        }
-        ./configuration.nix
-      ];
+
+          modules = [
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${user} = {
+                  imports = [
+                    # common home-manager configuration
+                    ./home.nix
+                    # host specific home-manager configuration
+                    ./hosts/${host}/home.nix
+                  ];
+
+                  home = {
+                    username = user;
+                    homeDirectory = "/home/${user}";
+                    # do not change this value
+                    stateVersion = "23.05";
+                  };
+
+                  # Let Home Manager install and manage itself.
+                  programs.home-manager.enable = true;
+                };
+              };
+            }
+            # common configuration
+            ./configuration.nix
+            # host specific configuration
+            ./hosts/${host}/configuration.nix
+            # host specific hardware configuration
+            ./hosts/${host}/hardware-configuration.nix
+          ];
+        };
     in {
       # update with `nix flake update`
       # rebuild with `nixos-rebuild switch --flake .#dev`
-      dev = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-
-        specialArgs = {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs system user;
-        };
-
-        modules =
-          commonModules
-          ++ [
-            # host specific configuration
-            ./hosts/dev/configuration.nix
-            # host specific hardware configuration
-            ./hosts/dev/hardware-configuration.nix
-          ];
-      };
+      dev = mkHost "dev";
+      # update with `nix flake update`
+      # rebuild with `nixos-rebuild switch --flake .#gaming`
+      gaming = mkHost "gaming";
     };
 
     templates = let
