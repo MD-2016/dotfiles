@@ -29,8 +29,8 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.cinnamon.enable = true;
+  xdg.portal.enable = true;
 
   # Virtualization stuff
   virtualisation.libvirtd.enable = true;
@@ -62,7 +62,11 @@
     extraGroups = [ "networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [
       vscode
-      ungoogled-chromium   
+      ungoogled-chromium
+      neofetch
+      gimp
+      libsForQt5.okular
+      gnome-console
        #  thunderbird
     ];
   };
@@ -73,6 +77,13 @@
      gnome.gnome-boxes
       virt-manager
       virtiofsd
+      git
+      micro
+      firefox
+      hplip
+      avahi
+      vlc
+      pavucontrol
 
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
