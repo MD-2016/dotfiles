@@ -84,38 +84,6 @@ if [ -x /usr/bin/dircolors ]; then
     #alias egrep='egrep --color=auto'
 fi
 
-
-alias ..="cd .."
-alias notes="micro"
-alias mkp="mkdir -p"
-alias hcw="history -c && history -w"
-alias clr="clear"
-
-# Debian specific
-alias add="sudo apt install"
-alias remove="sudo apt remove"
-alias search="apt search"
-alias update="sudo apt update"
-alias upgrade="sudo apt upgrade"
-alias distup="sudo apt dist-upgrade"
-
-# flatpak specific
-alias shortwave="(flatpak run de.haeckerfelix.Shortwave &> /dev/null &)"
-alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
-alias discord="(flatpak run com.discordapp.Discord  &> /dev/null &)"
-alias flatseal="(flatpak run com.github.tchx84.Flatseal &> /dev/null &)"
-alias podmandesk="(flatpak run io.podman_desktop.PodmanDesktop &> /dev/null &)"
-alias boxbuddy="(flatpak run io.github.dvlv.boxbuddyrs &> /dev/null &)"
-
-# distrobox specific
-alias php="~/.local/bin/php"
-alias go="~/.local/bin/go"
-alias rust="~/.local/bin/rustc"
-alias node="~/.local/bin/node"
-alias javac="~/.local/bin/javac"
-alias java="~/.local/bin/java"
-alias composer="~/.local/bin/composer"
-alias code="~/.local/bin/code"
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -123,6 +91,68 @@ alias code="~/.local/bin/code"
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
+
+# aliases
+
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+alias c="cd"
+alias ..="cd .."
+alias mkd="mkdir -p"
+alias clr="clear"
+alias hcw="history -c && history -w"
+alias dmg="sudo dmesg"
+alias logout="gnome-session-quit"
+alias suspend="systemctl suspend"
+#alias y="yay"
+alias ffx="(firefox &> /dev/null &)"
+alias wolf="(flatpak run io.gitlab.librewolf-community &> /dev/null &)"
+alias discord="(discord  &>  /dev/null &)"
+alias hexchat="(flatpak run io.github.Hexchat &> /dev/null  &)"
+alias element="(flatpak run im.riot.Riot &> /dev/null &)"
+alias shortwave="(flatpak run de.haeckerfelix.Shortwave &> /dev/null &)"
+alias seal="(flatpak run com.github.tchx84.Flatseal &> /dev/null &)"
+#alias office="(flatpak run org.libreoffice.LibreOffice &> /dev/null &)"
+alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
+alias pdesk="(flatpak run io.podman_desktop.PodmanDesktop &> /dev/null &)"
+alias boxbuddy="(flatpak run io.github.dvlv.boxbuddyrs &> /dev/null &)"
+alias top="htop"
+
+alias notes="micro"
+alias search="apt search"
+
+#alias search="pacman -Ss"
+# Debian specific
+alias add="sudo apt install"
+alias remove="sudo apt remove"
+alias distup="sudo apt dist-upgrade"
+alias update="sudo apt update"
+alias upgrade="sudo apt upgrade"
+alias full="sudo apt full-upgrade"
+alias purge="sudo apt purge"
+alias show="apt show"
+alias aplist="apt list"
+alias autoremove="sudo apt autoremove"
+
+
+# Distrobox specific
+alias disent="distrobox enter"
+
+# function for updates
+updg() {
+	update && upgrade
+}
+
+scrollback=5000
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
