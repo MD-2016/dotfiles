@@ -115,6 +115,9 @@ alias logout="gnome-session-quit"
 alias suspend="systemctl suspend"
 #alias y="yay"
 alias ffx="(firefox &> /dev/null &)"
+
+# flatpak specific
+alias bottles="(flatpak run com.usebottles.bottles &> /dev/null &)"
 alias wolf="(flatpak run io.gitlab.librewolf-community &> /dev/null &)"
 alias discord="(discord  &>  /dev/null &)"
 alias hexchat="(flatpak run io.github.Hexchat &> /dev/null  &)"
@@ -142,10 +145,11 @@ alias purge="sudo apt purge"
 alias show="apt show"
 alias aplist="apt list"
 alias autoremove="sudo apt autoremove"
+alias lsbugs="apt-listbugs"
 
 
 # Distrobox specific
-alias disent="distrobox enter"
+alias distent="distrobox enter"
 
 # function for updates
 updg() {
