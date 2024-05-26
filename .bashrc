@@ -105,6 +105,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
+alias micbash="micro .bashrc"
+alias srcb="source .bashrc"
+alias ~="cd ~"
 alias c="cd"
 alias ..="cd .."
 alias mkd="mkdir -p"
@@ -128,6 +131,8 @@ alias seal="(flatpak run com.github.tchx84.Flatseal &> /dev/null &)"
 alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
 alias pdesk="(flatpak run io.podman_desktop.PodmanDesktop &> /dev/null &)"
 alias boxbuddy="(flatpak run io.github.dvlv.boxbuddyrs &> /dev/null &)"
+alias lunacy="(flatpak run com.icons8.Lunacy &> /dev/null &)"
+alias obsidian="(flatpak run md.obsidian.Obsidian &> /dev/null &)"
 alias top="htop"
 
 alias notes="micro"
@@ -150,6 +155,13 @@ alias lsbugs="apt-listbugs"
 
 # Distrobox specific
 alias distent="distrobox enter"
+alias pacup="sudo pacman -Syu"
+alias y="yay"
+
+# function for arch updates
+pacupy() {
+	pacup && y
+}
 
 # function for updates
 updg() {
