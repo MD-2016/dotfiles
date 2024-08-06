@@ -133,6 +133,8 @@ alias pdesk="(flatpak run io.podman_desktop.PodmanDesktop &> /dev/null &)"
 alias boxbuddy="(flatpak run io.github.dvlv.boxbuddyrs &> /dev/null &)"
 alias lunacy="(flatpak run com.icons8.Lunacy &> /dev/null &)"
 alias obsidian="(flatpak run md.obsidian.Obsidian &> /dev/null &)"
+alias flatup="flatpak update"
+
 alias top="htop"
 
 alias notes="micro"
@@ -189,3 +191,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# for debian package building using quilt for patches
+alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+. /usr/share/bash-completion/completions/quilt
+complete -F _quilt_completion $_quilt_complete_opt dquilt
