@@ -154,6 +154,15 @@ alias aplist="apt list"
 alias autoremove="sudo apt autoremove"
 alias lsbugs="apt-listbugs"
 
+# Fedora specific
+alias dni="sudo dnf install"
+alias dnr="sudo dnf remove"
+alias dnri="sudo dnf reinstall"
+alias dnl="dnf list"
+alias dndow="sudo dnf downgrade"
+alias dnps="dnf search"
+alias dnup="sudo dnf upgrade"
+
 
 # Distrobox specific
 alias distent="distrobox enter"
