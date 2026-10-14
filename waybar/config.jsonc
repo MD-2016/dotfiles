@@ -1,0 +1,118 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 4,
+
+    // Layout configuration
+    "modules-left": [
+        "custom/slackware",
+        "niri/workspaces",
+        "niri/window",
+        "wlr/taskbar" 
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "battery",
+        "tray"
+    ],
+
+    // Slackware Logo Module
+    "custom/slackware": {
+        "format": "", 
+        "tooltip": false
+    },
+
+    // Niri Specific Modules
+    "niri/workspaces": {
+        "format": "{index}:{name}",
+        "all-outputs": true
+    },
+    "niri/window": {
+        "format": "{title}",
+        "max-length": 40,
+        "separate-outputs": true
+    },
+
+    // MangoWM / General wlroots Fallbacks
+    "wlr/taskbar": {
+        "format": "{icon} {title:.10s}",
+        "icon-size": 18,
+        "icon-theme": "Adwaita",
+        "tooltip-format": "{title}",
+        "on-click": "activate"
+    },
+
+    // Core System Modules (Clock & Calendar Enhanced)
+    "clock": {
+        "timezone": "America/New_York",
+        "format": "  {:%a %b %d  %I:%M %p}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#eccbf5'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "  {}%"
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "   {ipaddr}",
+        "format-disconnected": "   Disconnected",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "   {icon} {volume}%",
+        "format-muted": "   Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "  ",
+            "headset": "  ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "   {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["  ", "  ", "  ", "  ", "  "]
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }
+}

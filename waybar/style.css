@@ -1,0 +1,78 @@
+/* Base Configuration */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.9); /* Dark background with subtle alpha */
+    color: #cdd6f4;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Common Module Blocks Styling */
+.modules-left, .modules-center, .modules-right {
+    margin: 4px 6px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    background-color: #11111b;
+}
+
+/* Individual Module Controls */
+#custom-slackware {
+    color: #4a154b; /* Slack purple signature */
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #a6adc8;
+}
+
+#workspaces button.active {
+    color: #cba6f7;
+    font-weight: bold;
+}
+
+#window, #taskbar {
+    padding: 0 10px;
+}
+
+/* Center Clock Styling */
+#clock {
+    color: #89b4fa;
+    font-weight: bold;
+    padding: 0 12px;
+}
+
+/* Right Status Modules styling */
+#pulseaudio, #network, #cpu, #memory, #battery, #tray {
+    padding: 0 10px;
+    margin: 0 2px;
+}
+
+#pulseaudio { color: #f9e2af; }
+#network { color: #a6e3a1; }
+#cpu { color: #74c7ec; }
+#memory { color: #f5c2e7; }
+
+#battery { color: #a6e3a1; }
+#battery.warning { color: #fab387; }
+#battery.critical { color: #f38ba8; animation-name: blink; animation-duration: 0.5s; animation-timing-function: linear; animation-iteration-count: infinite; animation-direction: alternate; }
+
+/* Calendar Dropdown Styling Rules */
+tooltip {
+    background: #1e1e2e;
+    border: 1px solid #cba6f7;
+    border-radius: 8px;
+}
+
+tooltip label {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    padding: 8px;
+    color: #cdd6f4;
+}
