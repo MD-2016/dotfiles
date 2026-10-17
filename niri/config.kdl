@@ -1,0 +1,122 @@
+// -------------------------------------------------------------------
+// ✨ Fun, Cozy & Smooth Niri Configuration (Awww + Rofi + Xfce4-Terminal)
+// -------------------------------------------------------------------
+
+input {
+    keyboard { 
+        xkb { layout "us"; }
+    } 
+    touchpad { tap; dwt; natural-scroll; }
+}
+
+layout {
+    gaps 16
+    border {
+        off
+        width 4
+        active-gradient from="#b4befe" to="#f5c2e7" angle=45
+        inactive-color "#313244"
+    }
+    default-column-width { proportion 0.5; }
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=8
+        color "#00000066"
+    }
+}
+
+// 🌌 BACKDROP & WORKSPACE OVERVIEW STYLING
+layer-rule {
+    match namespace="^awww-daemon-backdrop$"
+    place-within-backdrop true
+}
+
+// 🌌 ROFI WAYLAND FIXES
+layer-rule {
+    match namespace="^rofi$"
+    // Fixed: Removed unrecognized 'keyboard-focus' line.
+    // Rofi natively handles focus over Wayland without this block.
+}
+
+animations {
+    slowdown 1.0
+    window-open { spring damping-ratio=0.65 stiffness=700 epsilon=0.0001; }
+    window-close { spring damping-ratio=0.8 stiffness=800 epsilon=0.0001; }
+}
+
+// 🔮 WINDOW RULES (Borders, Rounded Corners & Client-Side Decorations)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// 🪟 XFCE4-TERMINAL FIXES
+window-rule {
+    match app-id="xfce4-terminal"
+    // Fixed: Removed 'draw-border-with-gaps' which does not exist in Niri.
+}
+
+// xwayland-satellite
+xwayland-satellite {
+	path "/usr/bin/xwayland-satellite"
+}
+
+binds {
+    // 💻 CORE UTILITIES (Xfce4-Terminal & Rofi)
+    Mod+Return { spawn "xfce4-terminal"; }
+    Mod+D { spawn "rofi" "-show" "drun"; }
+    
+    // Window Management
+    Mod+Q { close-window; }
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    
+    // Vertical Navigation
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Right { move-column-right; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+F { maximize-column; }
+    Mod+Space { toggle-window-floating; }
+    
+    // Toggle Overview
+    Mod+Tab { toggle-overview; }
+
+    // Workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+
+    // 🚪 EXIT NIRI
+    Mod+Shift+E { quit; }
+    
+    // 💤 SUSPEND TO RAM (Slackware / elogind fix)
+    Mod+Shift+S { spawn "loginctl" "suspend"; }
+
+    // bring up wallpaper config
+    Mod+W { spawn "~/.local/bin/rofi-wallpaper.sh"; }
+
+    // Media Keys
+    XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+    XF86AudioMute        { spawn "wpctl" "set-mute"   "@DEFAULT_AUDIO_SINK@" "toggle"; }
+}
+
+// 🚀 AUTOSTART
+//spawn-at-startup "awww-daemon"
+spawn-at-startup "awww-daemon" "--namespace" "backdrop"
+spawn-at-startup "waybar"
+spawn-at-startup "noctalia"
+spawn-at-startup "pipewire"
+spawn-at-startup "wireplumber"
+spawn-at-startup "pipewire-pulse"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal"
+spawn-at-startup "xwayland-satellite"
