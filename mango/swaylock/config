@@ -1,0 +1,26 @@
+# Base configuration
+image=/home/md/Pictures/wallpapers/4kWestern.jpg
+scaling=fill
+show-failed-attempts
+
+# MangoWC Orange & Dark Theme color styling
+color=1e1e2eff
+font=Sans
+
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+inside-color=1e1e2ecc
+inside-clear-color=e6b450cc
+inside-ver-color=f2a02ecc
+inside-wrong-color=f28fadcc
+
+ring-color=f2a02eff
+ring-clear-color=e6b450ff
+ring-ver-color=f2a02eff
+ring-wrong-color=f28fadff
+
+key-hl-color=e6b450ff
+text-color=c8c8c8ff
