@@ -87,6 +87,40 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Zig Path update
+#export PATH=$PATH:~/zig/zig-x86_64-linux-0.16.0/
+#export PATH=$PATH:~/zls/
+
+# Go path update
+#export GOROOT=/usr/lib64/go1.26.5/go
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOPATH/bin
+export CARGO=/home/md/.cargo/bin
+export PATH=$PATH:$CARGO
+export PATH=$PATH:/usr/local/sbin
+#export PODMAN=/usr/local/bin/podman
+#export PATH=$PATH:$PODMAN
+#alias podman="podman" 
+
+# awww to path
+export PATH=$PATH:~/awww/target/release/
+# Rust toolchain
+#export PATH=$PATH:~/.cargo/bin/
+
+# Typst path update
+#export PATH=$PATH:~/typst/typst-x86_64-unknown-linux-musl/
+
+# add nb to path
+#export PATH=$PATH:~/nb/nb-7.25.2/
+
+# set default editor
+export EDITOR="vim"
+export VISUAL="$EDITOR"
+
+# quickshell /usr/local
+export QML_IMPORT_PATH="/usr/local/lib64/qt6/qml:$QML_IMPORT_PATH"
+
+
 # some more ls aliases
 #alias ll='ls -l'
 #alias la='ls -A'
@@ -118,6 +152,10 @@ alias logout="gnome-session-quit"
 alias suspend="systemctl suspend"
 #alias y="yay"
 alias ffx="(firefox &> /dev/null &)"
+alias ff="fastfetch -c ~/.config/fastfetch/config.jsonc"
+
+# virtual network starter for vm
+alias vnst="sudo virsh net-start default"
 
 # flatpak specific
 alias bottles="(flatpak run com.usebottles.bottles &> /dev/null &)"
@@ -127,8 +165,9 @@ alias hexchat="(flatpak run io.github.Hexchat &> /dev/null  &)"
 alias element="(flatpak run im.riot.Riot &> /dev/null &)"
 alias shortwave="(flatpak run de.haeckerfelix.Shortwave &> /dev/null &)"
 alias seal="(flatpak run com.github.tchx84.Flatseal &> /dev/null &)"
+alias imgview="(flatpak run org.gnome.Loupe &> /dev/null &)"
 #alias office="(flatpak run org.libreoffice.LibreOffice &> /dev/null &)"
-alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
+#alias spotify="(flatpak run com.spotify.Client &> /dev/null &)"
 alias pdesk="(flatpak run io.podman_desktop.PodmanDesktop &> /dev/null &)"
 alias boxbuddy="(flatpak run io.github.dvlv.boxbuddyrs &> /dev/null &)"
 alias lunacy="(flatpak run com.icons8.Lunacy &> /dev/null &)"
@@ -151,18 +190,23 @@ alias full="sudo apt full-upgrade"
 alias purge="sudo apt purge"
 alias show="apt show"
 alias aplist="apt list"
-alias autoremove="sudo apt autoremove"
+alias autoremoove="sudo apt autoremove"
 alias lsbugs="apt-listbugs"
+alias clrcb="xclip -sel clip < /dev/null"
+alias spotm="cd ~/.config/fastfetch/ && ./spotty.sh"
 
-# Fedora specific
-alias dni="sudo dnf install"
-alias dnr="sudo dnf remove"
-alias dnri="sudo dnf reinstall"
-alias dnl="dnf list"
-alias dndow="sudo dnf downgrade"
-alias dnps="dnf search"
-alias dnup="sudo dnf upgrade"
+# Slackware Commands
+alias slackup="sudo slackpkg update"
+alias slackrm="sudo slackpkg remove"
+alias slackin="sudo slackpkg install"
+alias slackupga="sudo slackpkg upgrade-all"
+alias slackpkgupg="sudo slackpkg upgrade"
+alias slackpkginn="sudo slackpkg install-new"
+alias slackpkggpg="sudo slackpkg update gpg"
 
+
+# Sway
+alias vsw="vim .config/sway/config"
 
 # Distrobox specific
 alias distent="distrobox enter"
@@ -177,6 +221,11 @@ pacupy() {
 # function for updates
 updg() {
 	update && upgrade
+}
+
+# function for fastfetch
+musicfetch() {
+    spotm && ff
 }
 
 scrollback=5000
@@ -202,6 +251,7 @@ if ! shopt -oq posix; then
 fi
 
 # for debian package building using quilt for patches
-alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
-. /usr/share/bash-completion/completions/quilt
-complete -F _quilt_completion $_quilt_complete_opt dquilt
+#alias dquilt="quilt --quiltrc=${HOME}/.quiltrc-dpkg"
+#. /usr/share/bash-completion/completions/quilt
+#complete -F _quilt_completion $_quilt_complete_opt dquilt
+#. "$HOME/.cargo/env"
