@@ -1,0 +1,81 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrains Mono Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Papirus";
+    display-drun: "  Apps ";
+    display-run: "  Run ";
+    display-window: "  Window ";
+    sidebar-mode: true;
+}
+
+@theme "../rofi/colors.rasi"
+
+window {
+    transparency: "real";
+    background-color: @bg;
+    text-color: @fg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 12px;
+    width: 35%;
+    padding: 15px;
+}
+
+prompt {
+    enabled: true;
+    padding: 10px;
+    background-color: @accent;
+    text-color: @bg;
+    border-radius: 8px;
+    margin: 0px 10px 0px 0px;
+}
+
+entry {
+    placeholder: "Search applications...";
+    background-color: @bg-alt;
+    text-color: @fg;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: transparent;
+    margin: 0px 0px 15px 0px;
+}
+
+listview {
+    background-color: transparent;
+    margin: 0px;
+    lines: 8;
+    columns: 1;
+    spacing: 5px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 24px;
+    margin: 0px 10px 0px 0px;
+    background-color: transparent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
