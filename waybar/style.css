@@ -1,78 +1,102 @@
-/* Base Configuration */
 * {
-    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    border: none;
-    border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 13px;
+  font-weight: bold;
+  min-height: 0;
 }
 
 window#waybar {
-    background-color: rgba(30, 30, 46, 0.9); /* Dark background with subtle alpha */
-    color: #cdd6f4;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background: transparent;
+  color: #cdd6f4;
 }
 
-/* Common Module Blocks Styling */
-.modules-left, .modules-center, .modules-right {
-    margin: 4px 6px;
-    padding: 2px 6px;
-    border-radius: 8px;
-    background-color: #11111b;
+/* --- MODULE CONTAINERS (Pills) --- */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: rgba(30, 30, 46, 0.85);
+  border: 2px solid rgba(137, 180, 250, 0.4);
+  border-radius: 16px;
+  padding: 4px 10px;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Individual Module Controls */
-#custom-slackware {
-    color: #4a154b; /* Slack purple signature */
-    font-size: 16px;
-    padding: 0 10px;
+/* --- INDIVIDUAL MODULE STYLING --- */
+#workspaces {
+  background: transparent;
+  margin: 0 4px;
 }
 
 #workspaces button {
-    padding: 0 8px;
-    color: #a6adc8;
+  padding: 0 8px;
+  color: #6c7086;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: #cba6f7;
-    font-weight: bold;
+  background: linear-gradient(135deg, #89b4fa, #cba6f7);
+  color: #11111b;
+  font-weight: bolder;
+  box-shadow: 0 0 10px rgba(137, 180, 250, 0.6);
 }
 
-#window, #taskbar {
-    padding: 0 10px;
+#workspaces button:hover {
+  background: #313244;
+  color: #f5e0dc;
 }
 
-/* Center Clock Styling */
-#clock {
-    color: #89b4fa;
-    font-weight: bold;
-    padding: 0 12px;
+#window {
+  color: #fab387;
+  padding: 0 10px;
 }
 
-/* Right Status Modules styling */
-#pulseaudio, #network, #cpu, #memory, #battery, #tray {
-    padding: 0 10px;
-    margin: 0 2px;
+#cpu, #memory, #temperature, #pulseaudio, #backlight, #battery, #network, #clock {
+  padding: 0 8px;
+  margin: 0 2px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
 }
 
-#pulseaudio { color: #f9e2af; }
-#network { color: #a6e3a1; }
-#cpu { color: #74c7ec; }
-#memory { color: #f5c2e7; }
+#cpu:hover, #memory:hover, #temperature:hover, #pulseaudio:hover, #backlight:hover, #battery:hover, #network:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
 
+#cpu { color: #89b4fa; }
+#memory { color: #a6e3a1; }
+#temperature { color: #f9e2af; }
+#temperature.critical {
+  color: #f38ba8;
+  animation: blink 1s infinite alternate;
+}
+
+#pulseaudio { color: #f5c2e7; }
+#backlight { color: #fab387; }
 #battery { color: #a6e3a1; }
-#battery.warning { color: #fab387; }
-#battery.critical { color: #f38ba8; animation-name: blink; animation-duration: 0.5s; animation-timing-function: linear; animation-iteration-count: infinite; animation-direction: alternate; }
-
-/* Calendar Dropdown Styling Rules */
-tooltip {
-    background: #1e1e2e;
-    border: 1px solid #cba6f7;
-    border-radius: 8px;
+#battery.charging { color: #a6e3a1; }
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 1s infinite alternate;
 }
 
-tooltip label {
-    font-family: "JetBrainsMono Nerd Font", monospace;
-    padding: 8px;
-    color: #cdd6f4;
+#network { color: #89dceb; }
+
+#clock {
+  color: #b4befe;
+  font-weight: bold;
 }
+
+#custom-power {
+  color: #f38ba8;
+  padding: 0 6px 0 10px;
+  font-size: 15px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #f38ba8;
+    color: #11111b;
+  }
+}
+
