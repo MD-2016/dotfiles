@@ -247,7 +247,7 @@
           "custom/power" = {
             format = "󰐥";
             tooltip = false;
-            on-click = "wlogout"; # Or your preferred power menu launcher
+            on-click = "wlogout -b 2"; # Or your preferred power menu launcher
           };
         }
       ];
