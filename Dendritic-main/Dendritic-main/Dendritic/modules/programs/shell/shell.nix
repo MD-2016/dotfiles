@@ -68,6 +68,8 @@
           micronixh = "sudo micro /etc/nixos/home.nix";
           micros = "sudo micro";
           nixswitch = "sudo nixos-rebuild switch";
+          nhs = "nh os switch 'path:.' --ask";
+          nhu = "nh os switch 'path:.' --ask --update";
 
           # Commented out aliases
           # shopt -s globstar

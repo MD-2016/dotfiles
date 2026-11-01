@@ -10,6 +10,7 @@
       ruby
       cachix
       devenv
+      openjdk
     ];
   };
 }

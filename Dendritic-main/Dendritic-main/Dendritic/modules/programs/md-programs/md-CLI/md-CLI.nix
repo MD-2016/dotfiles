@@ -23,6 +23,7 @@
       nh
       cachix
       devenv
+      wlogout
     ];
   };
 }

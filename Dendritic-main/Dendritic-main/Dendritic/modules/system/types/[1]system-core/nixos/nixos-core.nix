@@ -7,7 +7,7 @@
       boot.loader.efi.canTouchEfiVariables = true;
       hardware.enableRedistributableFirmware = true;
 
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      #boot.kernelPackages = pkgs.linuxPackages_latest;
 
       time.timeZone = "America/New_York";
 

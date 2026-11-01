@@ -18,5 +18,12 @@
       url = "github:nix-community/nur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    mango = {
+        url = "github:mangowm/mango";
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

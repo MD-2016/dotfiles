@@ -17,8 +17,8 @@
             {
               user = 
                 {
-                  name = "";
-                  email = "";
+                  name = "MD-2016";
+                  email = "25043596+MD-2016@users.noreply.github.com";
                 };
                 fetch.prune = true;
             };

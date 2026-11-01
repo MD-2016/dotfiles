@@ -3,7 +3,7 @@
   flake.modules.nixos.system-desktop = {
     imports = with inputs.self.modules.nixos; [
       system-cli
-      md-programs
+      md-GUI
       kitty
       virtualisation
       dbus
@@ -11,6 +11,8 @@
       xkb
       xserver
       hyprland
+      linux-cachyos
+      mango
     ];
   };
 
@@ -19,6 +21,8 @@
       system-cli
       kitty
       hyprland
+      firefox
+      mango
     ];
   };
 }
