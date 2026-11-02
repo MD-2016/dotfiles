@@ -10,6 +10,11 @@
 
   flake.modules.homeManager.git = 
     {
+
+      programs.gh = {
+        enable = true;
+      };
+      
       programs.git = 
         {
           enable = true;
