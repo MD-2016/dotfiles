@@ -1,6 +1,6 @@
-{ ... }: 
+{lib, pkgs, ... }: 
 {
-  flake.modules.nixos.displayManager = 
+  flake.modules.nixos.displayManager = {pkgs, ...}:
     {
       services.greetd = 
         {
@@ -10,7 +10,7 @@
               default_session = 
                 {
                   user = "greeter";
-                  command = getExe' pkgs.tuigreet "tuigreet";
+                  command = "${lib.getExe pkgs.tuigreet}";
                 };
             };
         };
