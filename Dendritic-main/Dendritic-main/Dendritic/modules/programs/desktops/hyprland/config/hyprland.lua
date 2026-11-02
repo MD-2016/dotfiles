@@ -19,7 +19,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("mako")                     -- Notification daemon
     hl.exec_cmd("nm-applet --indicator")    -- Network tray
     hl.exec_cmd("hyprpaper")
-    h1.exec_cmd("noctalia")
 end)
 
 local mod = "SUPER"
