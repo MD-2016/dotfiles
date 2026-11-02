@@ -14,10 +14,7 @@
     # manager, and sets up xdg-desktop-portal (wlr + gtk), polkit and xwayland.
     programs.mango.enable = true;
 
-    # LightDM (enables the X server it needs for the greeter itself).
-    # LightDM lists Wayland sessions from sessionPackages, so mango shows up.
-    services.xserver.displayManager.lightdm.enable = true;
-    # services.xserver.displayManager.lightdm.greeters.gtk.enable = true; # default greeter
+   
 
     services.displayManager.defaultSession = "mango";
   };

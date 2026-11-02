@@ -9,10 +9,12 @@
       dbus
       pipewire
       xkb
-      xserver
       hyprland
       linux-cachyos
       mango
+      displayManager
+      xfce
+      cosmic
     ];
   };
 
