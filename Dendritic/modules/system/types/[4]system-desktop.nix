@@ -15,6 +15,7 @@
       xfce
       cosmic
       niri
+      noctalia
     ];
   };
 
@@ -25,6 +26,7 @@
       hyprland
       firefox
       niri
+      noctalia
     ];
   };
 }

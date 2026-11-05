@@ -114,3 +114,4 @@ binds {
 spawn-at-startup "awww-daemon"
 //spawn-at-startup "awww-daemon" "--namespace" "backdrop"
 spawn-at-startup "waybar"
+spawn-at-startup "noctalia &"
