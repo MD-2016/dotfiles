@@ -1,11 +1,19 @@
 {pkgs, ... }: 
 {
-  flake.modules.nixos.noctalia = 
+
+  flake.modules.nixos.noctalia = {...}:
+  {
+    environment.systemPackages = with pkgs; 
+    [
+      noctalia
+    ];
+  };
+
+  flake.modules.homeManager.noctalia = 
     {
       programs.noctalia = 
         {
           enable = true;
-
           settings = 
             {
               bar = 

@@ -15,6 +15,7 @@
       displayManager
       xfce
       cosmic
+      niri
     ];
   };
 
@@ -25,6 +26,8 @@
       hyprland
       firefox
       mango
+      niri
+      noctalia
     ];
   };
 }
