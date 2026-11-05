@@ -102,7 +102,7 @@ binds {
     Mod+Shift+S { spawn "loginctl" "suspend"; }
 
     // bring up wallpaper config
-    Mod+W { spawn "~/.local/bin/rofi-wallpaper.sh"; }
+    Mod+W { spawn "~/.config/hypr/rofi-wallpaper.sh"; }
 
     // Media Keys
     XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"; }
@@ -111,12 +111,6 @@ binds {
 }
 
 // 🚀 AUTOSTART
-//spawn-at-startup "awww-daemon"
-spawn-at-startup "awww-daemon" "--namespace" "backdrop"
+spawn-at-startup "awww-daemon"
+//spawn-at-startup "awww-daemon" "--namespace" "backdrop"
 spawn-at-startup "waybar"
-spawn-at-startup "noctalia"
-spawn-at-startup "pipewire"
-spawn-at-startup "wireplumber"
-spawn-at-startup "pipewire-pulse"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal"
-spawn-at-startup "xwayland-satellite"

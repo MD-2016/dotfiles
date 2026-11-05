@@ -1,7 +1,13 @@
-{pkgs, ...}: 
+{...}: 
 {
-  flake.modules.nixos.niri = {...}: 
+  flake.modules.nixos.niri = {pkgs, ...}: 
   {
+
+    environment.systemPackages = with pkgs; 
+    [
+      xwayland-satellite
+    ];
+
     programs.niri = 
       {
         enable = true;
@@ -9,12 +15,12 @@
       };
   };
 
-  flake.modules.homeManager.niri = {...}: 
+  flake.modules.homeManager.niri = {pkgs, ...}: 
   {
     home.packages = with pkgs; 
     [
       mako
-      rofi-wayland
+      rofi
     ];
   };
 }

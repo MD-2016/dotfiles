@@ -1,10 +1,9 @@
-{ ... }: 
-{
+{...}: {
   flake-file.inputs = 
     {
-      mango = 
+      noctalia = 
         {
-          url = "github:mangowm/mango";
+          url = "github:noctalia-dev/noctalia";
           inputs.nixpkgs.follows = "nixpkgs";
         };
     };

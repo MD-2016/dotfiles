@@ -1,16 +1,21 @@
-{pkgs, ... }: 
+{inputs, ...}: 
 {
-
-  flake.modules.nixos.noctalia = {...}:
-  {
-    environment.systemPackages = with pkgs; 
-    [
-      noctalia
-    ];
-  };
-
-  flake.modules.homeManager.noctalia = 
+  flake.modules.nixos.noctalia = {pkgs, ...}: 
     {
+     
+      environment.systemPackages = with pkgs; 
+      [
+        inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
+    };
+
+      flake.modules.homeManager.noctalia = 
+    {
+
+       imports = [
+        inputs.noctalia.homeModules.default
+      ];
+
       programs.noctalia = 
         {
           enable = true;

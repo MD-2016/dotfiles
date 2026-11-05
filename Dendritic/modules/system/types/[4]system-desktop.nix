@@ -11,7 +11,6 @@
       xkb
       hyprland
       linux-cachyos
-      mango
       displayManager
       xfce
       cosmic
@@ -25,9 +24,7 @@
       kitty
       hyprland
       firefox
-      mango
       niri
-      noctalia
     ];
   };
 }

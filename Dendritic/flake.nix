@@ -21,16 +21,6 @@
 
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
 
-    mango = {
-        url = "github:mangowm/mango";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     niri.url = "github:sodiboo/niri-flake";
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }
