@@ -14,7 +14,7 @@
         wl-clipboard
         slurp
         jq
-        master.linux-wallpaperengine
+        linux-wallpaperengine
       ];
 
     };
