@@ -4,7 +4,7 @@
 		dms = 
 		{
 			url = "github:AvengeMedia/DankMaterialShell/stable";
-			inpouts.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		dms-plugin-registry = 
 		{
