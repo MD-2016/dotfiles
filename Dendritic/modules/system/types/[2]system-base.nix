@@ -13,7 +13,7 @@
 
   flake.modules.homeManager.system-base = {
     imports = with inputs.self.modules.homeManager; [
-      core_home-manager
+      core_system-core
     ];
   };
 }
