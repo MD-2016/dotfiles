@@ -1,29 +1,29 @@
 # DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
 # Use `nix run .#write-flake` to regenerate it.
 {
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs; }
-  {
-    imports = [
-      ./core.nix
-      (inputs.import-tree ./modules)
-    ];
-  };
-
-
-  inputs = {
-
-      AquaticOS = {
-        url = "git+https://git.aquaticservers.com/aqua/AquaticOS";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.nixpkgs-master.follows = "nixpkgs-master";
-        inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
-        inputs.flake-file.follows = "flake-file";
-        inputs.flake-parts.follows = "flake-parts";
-        inputs.home-manager.follows = "home-manager";
-        inputs.import-tree.follows = "import-tree";
-        inputs.nur.follows = "nur";
+  outputs =
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [
+        ./core.nix
+        (inputs.import-tree ./modules)
+      ];
     };
 
+  inputs = {
+    AquaticOS = {
+      url = "git+https://git.aquaticservers.com/aqua/AquaticOS";
+      inputs = {
+        flake-file.follows = "flake-file";
+        flake-parts.follows = "flake-parts";
+        home-manager.follows = "home-manager";
+        import-tree.follows = "import-tree";
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-master.follows = "nixpkgs-master";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+        nur.follows = "nur";
+      };
+    };
     dms = {
       url = "github:AvengeMedia/DankMaterialShell/stable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,9 +47,6 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nur.url = "github:nix-community/nur";
   };
 }

@@ -11,6 +11,12 @@
       cachix
       devenv
       openjdk
+      rust-analyzer
+      gopls
+      zls
+      ruby-lsp
+      clang
+      libclang
     ];
   };
 }
