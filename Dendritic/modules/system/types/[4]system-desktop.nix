@@ -16,6 +16,7 @@
       cosmic
       niri
       noctalia
+      dms
     ];
   };
 
