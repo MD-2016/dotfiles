@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.modules.nixos.md-programs = { pkgs, ... }: {
+  flake.modules.nixos.md-CLI = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       (writeShellApplication {
         name = "nixos-age";
