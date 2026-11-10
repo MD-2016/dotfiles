@@ -7,12 +7,13 @@
       networkManager
       md
       avahi
+      core_home-manager
     ];
   };
 
   flake.modules.homeManager.system-base = {
     imports = with inputs.self.modules.homeManager; [
-      system-core
+      core_home-manager
     ];
   };
 }

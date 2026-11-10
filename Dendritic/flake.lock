@@ -1,5 +1,46 @@
 {
   "nodes": {
+    "AquaticOS": {
+      "inputs": {
+        "flake-file": [
+          "flake-file"
+        ],
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "home-manager": [
+          "home-manager"
+        ],
+        "import-tree": [
+          "import-tree"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-master": [
+          "nixpkgs-master"
+        ],
+        "nixpkgs-unstable": [
+          "nixpkgs-unstable"
+        ],
+        "nur": [
+          "nur"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794312144,
+        "narHash": "sha256-IygCdRxAGi2g1Q0e1WA0HXS4L2AheP/zVwm3QhNsKUE=",
+        "ref": "refs/heads/master",
+        "rev": "8ba9cceeb2758e03d2adbd4908e1694f6e023ee8",
+        "revCount": 5,
+        "type": "git",
+        "url": "https://git.aquaticservers.com/aqua/AquaticOS"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.aquaticservers.com/aqua/AquaticOS"
+      }
+    },
     "dank-qml-common": {
       "flake": false,
       "locked": {
@@ -355,6 +396,7 @@
     },
     "root": {
       "inputs": {
+        "AquaticOS": "AquaticOS",
         "dms": "dms",
         "dms-plugin-registry": "dms-plugin-registry",
         "flake-file": "flake-file",
