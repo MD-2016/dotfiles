@@ -1,9 +1,7 @@
 { ... }:
 {
   flake.modules.nixos.md-GUI = { pkgs, ... }: 
-    let
-      spottyMonitor = import ./_spotty.nix { inherit pkgs; };
-    in
+   
   {
     environment.systemPackages = with pkgs; [
       shortwave
@@ -20,7 +18,6 @@
       mousepad
       virt-manager
       dconf-editor
-      spottyMonitor
       gh
       rofi
       swaylock

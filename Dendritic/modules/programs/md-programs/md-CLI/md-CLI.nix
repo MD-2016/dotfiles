@@ -1,8 +1,12 @@
 { ... }:
 {
-  flake.modules.nixos.md-CLI = { pkgs, ... }: {
-
+  flake.modules.nixos.md-CLI = { pkgs, ... }:
+    let
+      spottyMonitor = import ./_spotty.nix {inherit pkgs;};
+    in 
+   {
     environment.systemPackages = with pkgs; [
+      spottyMonitor
       micro
       wget
       unzip

@@ -17,6 +17,7 @@
       ruby-lsp
       clang
       libclang
+      jdt-language-server
     ];
   };
 }

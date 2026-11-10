@@ -28,7 +28,7 @@
               rust_analyzer.enable = true;
               zls.enable = true;
               solargraph.enable = true;
-              jdtls.enable = true;
+              java_language_server.enable = true;
             };
           };
           treesitter.enable = true;

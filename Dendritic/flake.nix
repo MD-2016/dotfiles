@@ -48,5 +48,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/nur";
+
+    nixvim.url = "github:nix-community/nixvim";
   };
 }

@@ -1,12 +1,12 @@
 { ... }:
 {
-  flake.modules.nixos.kitty = { pkgs, ... }: {
+  flake.modules.nixos.md-GUI = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       kitty
     ];
   };
 
-  flake.modules.homeManager.kitty = { pkgs, ... }: {
+  flake.modules.homeManager.md-GUI = { pkgs, ... }: {
     home.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
     programs.kitty = {
       enable = true;
